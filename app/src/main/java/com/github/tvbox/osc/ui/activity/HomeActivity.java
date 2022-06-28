@@ -220,7 +220,7 @@ public class HomeActivity extends BaseActivity {
                             @Override
                             public void run() {
                                 if (!useCacheConfig)
-                                    Toast.makeText(HomeActivity.this, "自定义jar加载成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(HomeActivity.this, "Dwei提醒：首页站点加载成功", Toast.LENGTH_SHORT).show();
                                 initData();
                             }
                         }, 50);
@@ -237,7 +237,7 @@ public class HomeActivity extends BaseActivity {
                         mHandler.post(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(HomeActivity.this, "jar加载失败", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(HomeActivity.this, "Dwei提醒：首页加载失败请切换站点", Toast.LENGTH_SHORT).show();
                                 initData();
                             }
                         });
@@ -407,7 +407,7 @@ public class HomeActivity extends BaseActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void refresh(RefreshEvent event) {
         if (event.type == RefreshEvent.TYPE_API_URL_CHANGE) {
-            Toast.makeText(mContext, "配置地址设置为" + (String) event.obj + ",重启应用生效!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "配置地址设置为" + (String) event.obj + ",返回应用生效!", Toast.LENGTH_SHORT).show();
         } else if (event.type == RefreshEvent.TYPE_PUSH_URL) {
             if (ApiConfig.get().getSource("push_agent") != null) {
                 Intent newIntent = new Intent(mContext, DetailActivity.class);
